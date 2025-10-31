@@ -1,0 +1,42 @@
+/* Importing Google fonts - Nunito Sans */                                                                                                            
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  align-items:center;
+  justify-content:center;
+  display:flex; 
+  background-color:beige;
+
+}
+
+.chatbot-popup {
+  width: 400px;
+  overflow: hidden;
+  background: white;
+  border-radius:15px;
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 
+  0 32px 64px -48px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-popup .chat-header {
+  display: flex;
+  background: brown;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 22px;
+}
+
+.chat-header .header-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
