@@ -1,6 +1,6 @@
-import React from  'react';
+import React, { useRef } from  'react';
 
-const ChatForm = ({setChatHistory}) => {
+const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
     const inputRef = useRef();
     const handleFormSubmit = () => {
         e.preventDefault();
@@ -10,14 +10,25 @@ const ChatForm = ({setChatHistory}) => {
 
         //Update chat history with the user message
         setChatHistory(history => [...history, { role: 'user', text: userMessage }]);
+
+        // Add a "Thinking..." placeholder from the model
+      
+
+        // Call the function to generate bot response
+        generateBotResponse([...chatHistory, { role: 'user', text: userMessage }]);
     }
     return (
         <form action="#" classform="chat-form" onSubmit={handleFormSubmit}>
-            <input ref={inputRef} type="text" placeholder="Type your message in here..."
-            className="message-input" Required/>
+            <input 
+            ref={inputRef} 
+            type="text" 
+            placeholder="Type your message in here..."
+            className="message-input" 
+            required
+            />
             <button type="submit" className="send-button">Send</button>
         </form>
-    )
-}
+    );
+};
 
 export default ChatForm;

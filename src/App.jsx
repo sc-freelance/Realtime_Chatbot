@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import ChatBotIcon from './components/ChatBotIcon';
 import ChatForm from './components/ChatForm';
+import ChatMessage from './components/ChatMessage';
 import './index.css';
 
 const App = () => {
   const [chatHistory, setChatHistory] = useState([]);
 
+  const generateBotResponse = () => {
+
+  }
 
   return (
     <div className="container">
@@ -29,14 +33,14 @@ const App = () => {
             </p>
           </div>
 
-          <div className="message user-message">
-            <p className="message-text">
-              ITNIHTTTCSETSFATRHLHSTAWTH
-            </p>
-          </div>
+
+          {/* Render the chat history dynamically */}
+          {chatHistory.map((chat, index) => (
+            <ChatMessage  key={index} chat={chat} />
+          ))}
 
           <div className="chat-footer">
-            <ChatForm setChatHistory={setChatHistory} />
+            <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory}  generateBotResponse={generateBotResponse}/>
           </div>
 
         </div>
