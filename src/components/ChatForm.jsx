@@ -8,14 +8,18 @@ const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
         if (!userMessage) return;
         inputRef.current.value = "";
 
-        //Update chat history with the user message
-        setChatHistory(history => [...history, { role: 'user', text: userMessage }]);
+        // Update chat history with the user message
+        setChatHistory((history) => [...history, { role: 'user', text: userMessage }]);
+        
+        // Delay 600 ms before generating Bot response
+        setTimeout(() => {
+            // Add a "Thinking..." placeholder from the model
+            setChatHistory((history) => [...history, { role: 'bot', text: 'Thinking...' }]);
 
-        // Add a "Thinking..." placeholder from the model
-      
+            // Call the function to generate bot response
+            generateBotResponse([...chatHistory, { role: 'user', text: userMessage }]);
+        }, 600);
 
-        // Call the function to generate bot response
-        generateBotResponse([...chatHistory, { role: 'user', text: userMessage }]);
     }
     return (
         <form action="#" classform="chat-form" onSubmit={handleFormSubmit}>
