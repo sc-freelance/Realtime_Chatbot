@@ -1,38 +1,44 @@
-import React, { useRef } from  'react';
+import React, { useRef } from 'react';
 
 const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
-    const inputRef = useRef();
-    const handleFormSubmit = () => {
-        e.preventDefault();
-        const userMessage = inputRef.current.value.trim();
-        if (!userMessage) return;
-        inputRef.current.value = "";
+  const inputRef = useRef();
 
-        // Update chat history with the user message
-        setChatHistory((history) => [...history, { role: 'user', text: userMessage }]);
-        
-        // Delay 600 ms before generating Bot response
-        setTimeout(() => {
-            // Add a "Thinking..." placeholder from the model
-            setChatHistory((history) => [...history, { role: 'bot', text: 'Thinking...' }]);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const userMessage = inputRef.current.value.trim();
+    if (!userMessage) return;
+    inputRef.current.value = '';
 
-            // Call the function to generate bot response
-            generateBotResponse([...chatHistory, { role: 'user', text: userMessage }]);
-        }, 600);
+    // Add user's message
+    setChatHistory((history) => [...history, { role: 'user', text: userMessage }]);
 
-    }
-    return (
-        <form action="#" classform="chat-form" onSubmit={handleFormSubmit}>
-            <input 
-            ref={inputRef} 
-            type="text" 
-            placeholder="Type your message in here..."
-            className="message-input" 
-            required
-            />
-            <button type="submit" className="send-button">Send</button>
-        </form>
-    );
+    // Delay before bot "thinking"
+    setTimeout(() => {
+      setChatHistory((history) => [...history, { role: 'model', text: 'Thinking...' }]);
+
+      // Call API with user message appended
+      generateBotResponse([
+        ...chatHistory,
+        {
+          role: 'user',
+          text: `Using the details provided above, please address this query: ${userMessage}`,
+        },
+      ]);
+    }, 600);
+  };
+
+  return (
+    <form action="#" className="chat-form" onSubmit={handleFormSubmit}>
+      <input
+        ref={inputRef}
+        type="text"
+        placeholder="Type your message here..."
+        className="message-input"
+        required
+      />
+      <button type="submit" className="send-button">Send</button>
+    </form>
+  );
 };
 
 export default ChatForm;
