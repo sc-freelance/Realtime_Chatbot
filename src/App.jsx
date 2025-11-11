@@ -13,7 +13,7 @@ const App = () => {
     },
   ]);
 
-  const [showChatbot, setShowChatbot] = useState(false);
+  const [showChatbot, setShowChatbot] = useState(true);
   const chatBodyRef = useRef();
 
   const generateBotResponse = async (history) => {
