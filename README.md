@@ -1,16 +1,41 @@
-# React + Vite
+# Realtime Chatbot
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive chatbot built with **React + Vite**.  
+It features a clean UI, dynamic message rendering, and integration with genAI for AI responses.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
+👉 [View the project here](https://sc-freelance.github.io/Realtime_Chatbot/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 Features
+- 💬 Real-time chat UI with typing animation
+- 🎨 Clean and responsive design
+- 🧩 Modular React components (ChatForm, ChatMessage, ChatBotIcon)
+- ⚡ Built with **Vite** for ultra-fast loading
+- ☁️ Deployed via **GitHub Actions + Pages**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧰 Tech Stack
+| Technology | Purpose |
+|-------------|----------|
+| **React (Hooks)** | Front-end framework |
+| **Vite** | Dev/build tool |
+| **JavaScript (ES6+)** | App logic |
+| **CSS3 / Flexbox** | Layout and styling |
+| **GitHub Pages** | Deployment and hosting |
+
+---
+
+## 🚀 Run Locally
+
+Clone and install dependencies:
+
+```bash
+git clone https://github.com/sc-freelance/Realtime_Chatbot.git
+cd Realtime_Chatbot
+npm install
+npm run dev
